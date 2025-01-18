@@ -132,9 +132,88 @@ The `keyPressed` function captures each key pressed by the user.
   (e.g., Shift, Ctrl) are pressed.
 
 #### Setting Up the Listener:
-The `keyboard.Listener` class is instantiated with the `on_press` parameter linked to the `keyPressed` function. The `start()` method initiates the key listener, while the `input()` function ensures the program remains active and responsive to user input.
+- The `keyboard.Listener` class is instantiated with the `on_press` parameter linked to the `keyPressed` function. The `start()` method initiates the key listener, while 
+  the `input()` function ensures the program remains active and responsive to user input.
 
 This code serves as the foundation for capturing keystrokes and logging them securely, demonstrating a practical application of Pynput in monitoring keyboard activity.
 
 <img width="508" alt="Keylogger Code" src="https://github.com/user-attachments/assets/bda9e86c-7de0-4f8e-8772-4880630cbc18" />
 
+
+### Figure 3: Keylogger in Action – Capturing and Logging Keystrokes
+This figure demonstrates the functionality of the keylogger by showing the process of capturing and logging typed input.
+
+#### Typing "Hello World" in the VSCode Terminal:
+- The first image illustrates the user typing the phrase `"Hello World"` into the Visual Studio Code (VSCode) terminal. Each key press is detected by the keylogger script running in the background.
+
+ <img width="381" alt="Hello World Terminal" src="https://github.com/user-attachments/assets/3cc021dc-77c6-4579-b982-4b1fd6688098" />
+ 
+
+#### Logged Output in keyfile.txt:
+- The second image displays the contents of the `keyfile.txt` file, opened in Notepad. The file shows the phrase `"HelloWorld"`—a precise recording of the typed input. Note that spaces are not captured in the current implementation, reflecting the program's behavior based on the keyPressed function design.
+
+<img width="508" alt="Hello World text" src="https://github.com/user-attachments/assets/b0ae2382-07d6-4074-9a63-5b3fb15670c9" />
+
+
+### Figure 4: Keylogger Demonstration – Simulating Credential Capture
+This figure showcases the keylogger's ability to record user input, demonstrating a simulated credential capture scenario.
+
+#### Simulated User Input in Google Search:
+- The first image shows the user typing "Instagram" into the Google search bar, followed by `"User1"` and `"Password123"` in the search field. This simulation represents a 
+  scenario where a user might enter their credentials for logging into a website.
+
+  <img width="508" alt="Login Try" src="https://github.com/user-attachments/assets/a317fb8c-b522-414d-a7cb-7d56ca52c995" />
+
+
+#### Logged Output in keyfile.txt:
+- The second image displays the updated contents of the `keyfile.txt` file, opened in Notepad. The file now shows:
+ `"HelloWorldInstagramUser1Password123"`
+- This reflects the sequential capture of all typed inputs, including the previously logged `"HelloWorld"`.
+
+This example demonstrates the keylogger's ability to log potentially sensitive user input such as credentials. It underscores the importance of understanding how such tools work to evaluate the associated risks and implement necessary safeguards.
+
+
+ <img width="509" alt="Keylogger Read" src="https://github.com/user-attachments/assets/0382bc17-7e6b-4944-bc29-3c1a91a71d06" />
+
+
+ 
+#### Figure 5: Integration with Splunk – Keylogger Event Logging and Analysis
+This figure illustrates the successful integration of the keylogger project with Splunk for event logging and monitoring using Sysmon-generated logs. Screenshots demonstrate the visibility of keylogger-related activities in the Splunk viewer.
+
+### Search Results for index="endpoint" keylogger:
+The first screenshot shows a search query executed in Splunk for `index="endpoint" keylogger`, revealing keylogger-related events captured from the endpoint. This confirms that the inputs configured in the Sysmon `inputs.conf` file successfully routed data to Splunk.
+
+<img width="510" alt="Splunk Events" src="https://github.com/user-attachments/assets/682d2dc9-29ac-4ed5-99b1-d4b35030f6f0" />
+
+
+### Event ID Analysis – Event IDs 11 and 1:
+The second screenshot highlights the detection of `Event IDs 11 (File Create) and 1 (Process Creation)` associated with keylogger operations. These events provide detailed telemetry about system activities linked to the keylogger's functionality.
+
+<img width="507" alt="EventID 1 Splunk" src="https://github.com/user-attachments/assets/64a76a81-0c1d-43ec-9b96-7414bdcdf4db" />
+
+<img width="508" alt="EventID Splunk" src="https://github.com/user-attachments/assets/c1579433-6cef-4358-8dd0-b980ebb5f0d8" />
+
+
+
+### Search Query for Specific File Path:
+Another screenshot demonstrates a more granular search, `index="endpoint" keylogger C:\\Users\msmith`, showcasing events related to the specific path where the `keyfile.txt` file is stored. This level of detail helps trace the keylogger's activities to its associated files.
+
+<img width="509" alt="Keylogger Data Splunk" src="https://github.com/user-attachments/assets/c947c21e-8798-4fd5-9aaf-463a2985be97" />
+
+
+### Host Identification – TARGET-PC:
+The final screenshot displays the host `TARGET-PC`, confirming the origin of the captured logs. Viewing these events from the `ADDC01` Active Directory server from my last Active Directory project and validates the centralized log collection and monitoring setup.
+
+<img width="491" alt="Splunk Host" src="https://github.com/user-attachments/assets/bc0275b5-13c1-416f-9d9a-992d6f5821ac" />
+
+
+These figures illustrate how Sysmon and Splunk were utilized to monitor and analyze the keylogger's behavior, emphasizing the importance of telemetry and SIEM tools in detecting and responding to such activities.
+ 
+
+## References
+Keylogger Python code retrieved from https://youtu.be/mDY3v2Xx-Q4?si=GN89uj9S4170TNVG
+
+## Final Note
+This project underscores the importance of ethical practices and creating a safe, controlled environment when conducting cybersecurity labs. Activities such as keylogging simulations and event analysis should always be performed on systems you own or have explicit permission to use, such as virtual environments like VirtualBox. These practices ensure compliance with ethical and legal standards while fostering a secure learning experience.
+
+By utilizing dedicated virtual machines, tools like Sysmon, and monitoring platforms like Splunk, this lab provided a hands-on approach to understanding keylogger functionality and its detection. Such controlled experiments are invaluable for honing cybersecurity skills while maintaining responsible practices that align with professional integrity and industry standards
