@@ -55,67 +55,47 @@ The scope of the project includes the development and deployment of the keylogge
 
 
 ## Testing and Validation
-### Simulated Attack Scenarios
-#### <ins> Brute Force Attack:</ins>
-
-- Using the command:
-#### `hydra -t 1 -w 10 -l msmith -P passwords.txt rdp://192.168.10.100`
-
-- A brute force attack was conducted via Remote Desktop Protocol (RDP) targeting the msmith account. Upon successful login, event IDs such as 4625 (failed login), 4624 (successful login), 4634 (logoff), and 4776 (authentication attempt) were logged in Splunk. These logs provided crucial details about the attack sequence.
-
-#### <ins> Network Scans:</ins>
-
-- Nmap was utilized to identify open ports and services on the target machine. Sysmon captured unauthorized scanning activities, which Splunk dashboards highlighted for further analysis.
+### Simulated Scenarios:
 
 
-#### <ins> Installation of Atomic Red Team (ART): </ins>
-To simulate MITRE ATT&CK techniques, Atomic Red Team was installed on the target Windows machine:
+#### <ins> Keystroke Capture:</ins>
 
-PowerShell Installation Execution:
-The following command was executed in PowerShell (with administrator privileges) to install Atomic Red Team:
-
-#### powershell:
-`Install-AtomicRedTeam -getAtomics`
+- Typed various inputs on the target machine to evaluate the keylogger's accuracy in recording keystrokes.
+- Verified stored logs to ensure all inputs were captured without loss.
 
 
-#### <ins> Defender Exclusions for Atomic Red Team: </ins>
-- To prevent Microsoft Defender from blocking ART files, the entire C:\ drive was excluded via Windows Security:
+#### <ins> Detection Testing:</ins>
 
-#### Path: 
-- Virus & Threat Protection > Manage Settings > Exclusions > Add Folder.
-- Administrator privileges were required to confirm the exclusion.
+- Injested and analyzed logs using Sysmon to trace keylogger activities.
+- Identified Event IDs (`EventID:1 / EventID:11`) linked to the keylogger’s execution and data storage.
 
-#### <ins> Atomic Red Team Installation: </ins>
-The following command downloaded and unpacked ART on the target system:
 
-#### powershell:
-`IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' - UseBasicParsing);`
-**Dependencies were installed by confirming prompts during setup.**
-
-#### <ins> Testing MITRE ATT&CK Techniques: </ins>
-
-- After installation, the C:\AtomicRedTeam\atomics directory provided access to technique IDs corresponding to MITRE ATT&CK techniques.
-- For example, Technique ID T119 was explored for testing and mapped back to the MITRE ATT&CK Enterprise Matrix for further understanding.
 
 ### Log Analysis and Insights
 - #### Event Detection:
-  Splunk dashboards visualized real-time system activities, flagging anomalies such as repeated login attempts and unauthorized access.
+  Key system activities, such as file creation and keyboard input monitoring, were logged.
 - #### Correlated Events:
-  Logs like Event ID 4625, 4624, 4634, and 4776 were analyzed to trace the attack path and determine its impact.
+  Logs provided a timeline of keylogger activities, from execution to data capture.
 - #### Actionable Insights:
-  Detailed event correlations helped identify the root cause of the attacks, enabling a better understanding of threat dynamics and response strategies.
+  Analysis highlighted potential system vulnerabilities and detection opportunities, demonstrating how monitoring tools can identify unauthorized keylogging activity.
 
 ## Conclusion
-The Active Directory and Cybersecurity Project demonstrated the importance of integrating security practices with AD management. By simulating attacks and analyzing system responses, the project highlighted:
+The Keylogger `Implementation and Splunk Analysis Project` provided valuable insights into the ethical and technical aspects of keylogger usage. Through development, deployment, and analysis, the project demonstrated:
 
-- The critical role of AD in enterprise security and its potential vulnerabilities.
-- The effectiveness of telemetry tools like Sysmon in generating actionable security data.
-- The value of log analysis platforms like Splunk in detecting and responding to incidents.
+- The functionality of keyloggers in capturing system activities.
+- The importance of controlled environments for ethical testing.
+- The value of system logs in detecting unauthorized monitoring tools.
 
 ### Key Takeaways
-- Active Directory requires continuous monitoring and robust security configurations to mitigate threats.
-- Simulated attack scenarios are invaluable for understanding real-world adversarial techniques and improving defense mechanisms.
-- Combining telemetry tools and SIEM platforms enhances incident detection and response capabilities.
+
+- Robust logging mechanisms, such as Sysmon and Event Viewer, proved invaluable in tracing the activities of the keylogger, highlighting their role in threat detection and 
+  incident response.
+- The hands-on implementation strengthened technical skills in Python programming, virtualized environment setup, and log analysis, aligning with industry-relevant 
+  cybersecurity practices.
+- The ability to monitor endpoint activities in real time played a crucial role in identifying and understanding the impact of the keylogger, reinforcing the value of EDR 
+  (Endpoint Detection and Response) tools.
+- Analyzing event logs demonstrated how keylogger activities correlate with specific system behaviors, such as process execution and file creation, improving threat-hunting 
+  skills.
 
 
 
