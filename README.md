@@ -101,7 +101,7 @@ The Keylogger `Implementation and Splunk Analysis Project` provided valuable ins
 
 ## Figures
 
-### Figure 1: Installation and Verification of Pynput Library
+### <ins>Figure 1: Installation and Verification of Pynput Library</ins>
 This figure demonstrates the successful installation and verification of the Pynput library, a Python module used for controlling and monitoring input devices such as keyboards and mice. The installation was performed using the command:
 
 `py -m pip install pynput`
@@ -117,7 +117,7 @@ After the installation, the command:
 <img width="384" alt="Success Install pip" src="https://github.com/user-attachments/assets/58891eee-d6dc-4c77-b070-2c25e1a5a242" />
 
 
-### Figure 2: Keylogger Code Implementation
+### <ins>Figure 2: Keylogger Code Implementation</ins>
 
 This figure showcases the Python code used to implement a basic keylogger. Utilizing the Pynput library, the script monitors and logs keyboard input into a file named `keyfile.txt`. The key functionalities of the code are described below:
 
@@ -140,7 +140,7 @@ This code serves as the foundation for capturing keystrokes and logging them sec
 <img width="508" alt="Keylogger Code" src="https://github.com/user-attachments/assets/bda9e86c-7de0-4f8e-8772-4880630cbc18" />
 
 
-### Figure 3: Keylogger in Action – Capturing and Logging Keystrokes
+### <ins>Figure 3: Keylogger in Action – Capturing and Logging Keystrokes</ins>
 This figure demonstrates the functionality of the keylogger by showing the process of capturing and logging typed input.
 
 #### Typing "Hello World" in the VSCode Terminal:
@@ -155,7 +155,7 @@ This figure demonstrates the functionality of the keylogger by showing the proce
 <img width="508" alt="Hello World text" src="https://github.com/user-attachments/assets/b0ae2382-07d6-4074-9a63-5b3fb15670c9" />
 
 
-### Figure 4: Keylogger Demonstration – Simulating Credential Capture
+### <ins>Figure 4: Keylogger Demonstration – Simulating Credential Capture</ins>
 This figure showcases the keylogger's ability to record user input, demonstrating a simulated credential capture scenario.
 
 #### Simulated User Input in Google Search:
@@ -177,16 +177,16 @@ This example demonstrates the keylogger's ability to log potentially sensitive u
 
 
  
-#### Figure 5: Integration with Splunk – Keylogger Event Logging and Analysis
+#### <ins>Figure 5: Integration with Splunk – Keylogger Event Logging and Analysis</ins>
 This figure illustrates the successful integration of the keylogger project with Splunk for event logging and monitoring using Sysmon-generated logs. Screenshots demonstrate the visibility of keylogger-related activities in the Splunk viewer.
 
-### Search Results for index="endpoint" keylogger:
+#### Search Results for index="endpoint" keylogger:
 The first screenshot shows a search query executed in Splunk for `index="endpoint" keylogger`, revealing keylogger-related events captured from the endpoint. This confirms that the inputs configured in the Sysmon `inputs.conf` file successfully routed data to Splunk.
 
 <img width="510" alt="Splunk Events" src="https://github.com/user-attachments/assets/682d2dc9-29ac-4ed5-99b1-d4b35030f6f0" />
 
 
-### Event ID Analysis – Event IDs 11 and 1:
+#### Event ID Analysis – Event IDs 11 and 1:
 The second screenshot highlights the detection of `Event IDs 11 (File Create) and 1 (Process Creation)` associated with keylogger operations. These events provide detailed telemetry about system activities linked to the keylogger's functionality.
 
 <img width="507" alt="EventID 1 Splunk" src="https://github.com/user-attachments/assets/64a76a81-0c1d-43ec-9b96-7414bdcdf4db" />
@@ -195,13 +195,13 @@ The second screenshot highlights the detection of `Event IDs 11 (File Create) an
 
 
 
-### Search Query for Specific File Path:
+#### Search Query for Specific File Path:
 Another screenshot demonstrates a more granular search, `index="endpoint" keylogger C:\\Users\msmith`, showcasing events related to the specific path where the `keyfile.txt` file is stored. This level of detail helps trace the keylogger's activities to its associated files.
 
 <img width="509" alt="Keylogger Data Splunk" src="https://github.com/user-attachments/assets/c947c21e-8798-4fd5-9aaf-463a2985be97" />
 
 
-### Host Identification – TARGET-PC:
+#### Host Identification – TARGET-PC:
 The final screenshot displays the host `TARGET-PC`, confirming the origin of the captured logs. Viewing these events from the `ADDC01` Active Directory server from my last Active Directory project and validates the centralized log collection and monitoring setup.
 
 <img width="491" alt="Splunk Host" src="https://github.com/user-attachments/assets/bc0275b5-13c1-416f-9d9a-992d6f5821ac" />
