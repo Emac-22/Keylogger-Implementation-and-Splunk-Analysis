@@ -101,8 +101,14 @@ The Keylogger `Implementation and Splunk Analysis Project` provided valuable ins
 
 ## Figures
 
-### Figure 1.
-This diagram illustrates the logical layout of the components involved in the Active Directory and Cybersecurity project. It visualizes the flow of data and interactions between key components, including the domain controller (ADDC01), target machine, Kali Linux (used for attack simulations), and Splunk for log analysis. The diagram provides a clear overview of the project's architecture and serves as a blueprint for understanding the integration of offensive and defensive elements.
+### Figure 1: Installation and Verification of Pynput Library
+This figure demonstrates the successful installation and verification of the Pynput library, a Python module used for controlling and monitoring input devices such as keyboards and mice. The installation was performed using the command:
+
+`py -m pip install pynput`
+
+After the installation, the command:
+
+`py -m pip show pynput`
 
 
-<img width="380" alt="Diagram" src="https://github.com/user-attachments/assets/e4bb13cf-cd81-40dd-af8c-a72ed9af44fc" />
+<img width="384" alt="Success Install pip" src="https://github.com/user-attachments/assets/58891eee-d6dc-4c77-b070-2c25e1a5a242" />
