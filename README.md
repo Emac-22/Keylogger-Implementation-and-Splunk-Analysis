@@ -106,9 +106,35 @@ This figure demonstrates the successful installation and verification of the Pyn
 
 `py -m pip install pynput`
 
+<img width="359" alt="pip install" src="https://github.com/user-attachments/assets/07494592-6cbd-4ccc-baeb-27ef93df54d9" />
+
+
 After the installation, the command:
 
 `py -m pip show pynput`
 
 
 <img width="384" alt="Success Install pip" src="https://github.com/user-attachments/assets/58891eee-d6dc-4c77-b070-2c25e1a5a242" />
+
+
+### Figure 2: Keylogger Code Implementation
+
+This figure showcases the Python code used to implement a basic keylogger. Utilizing the Pynput library, the script monitors and logs keyboard input into a file named `keyfile.txt`. The key functionalities of the code are described below:
+
+#### Importing the Library:
+- The `keyboard` module from the Pynput library is imported, enabling the script to listen for and process keystrokes.
+
+#### Defining the Key Press Function:
+The `keyPressed` function captures each key pressed by the user.
+
+- The key is converted to a string representation using `str(key)` for immediate output.
+- The key is written to a file, `keyfile.txt`, in append mode. A `try-except` block ensures the function gracefully handles any errors, such as when non-character keys 
+  (e.g., Shift, Ctrl) are pressed.
+
+#### Setting Up the Listener:
+The `keyboard.Listener` class is instantiated with the `on_press` parameter linked to the `keyPressed` function. The `start()` method initiates the key listener, while the `input()` function ensures the program remains active and responsive to user input.
+
+This code serves as the foundation for capturing keystrokes and logging them securely, demonstrating a practical application of Pynput in monitoring keyboard activity.
+
+<img width="508" alt="Keylogger Code" src="https://github.com/user-attachments/assets/bda9e86c-7de0-4f8e-8772-4880630cbc18" />
+
