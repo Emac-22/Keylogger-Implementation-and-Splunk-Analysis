@@ -177,7 +177,7 @@ This example demonstrates the keylogger's ability to log potentially sensitive u
 
 
  
-#### <ins>Figure 5: Integration with Splunk – Keylogger Event Logging and Analysis</ins>
+### <ins>Figure 5: Integration with Splunk – Keylogger Event Logging and Analysis</ins>
 This figure illustrates the successful integration of the keylogger project with Splunk for event logging and monitoring using Sysmon-generated logs. Screenshots demonstrate the visibility of keylogger-related activities in the Splunk viewer.
 
 #### Search Results for index="endpoint" keylogger:
